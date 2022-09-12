@@ -1,0 +1,8 @@
+@hostname = http://localhost
+@port = 3333
+@host = {{hostname}}:{{port}}
+
+###
+GET {{host}}/ads HTTP/1.1
+
+###
