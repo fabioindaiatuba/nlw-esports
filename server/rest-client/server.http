@@ -1,0 +1,32 @@
+@hostname = http://localhost
+@port = 3333
+@host = {{hostname}}:{{port}}
+
+###
+# LIST GAMES
+GET {{host}}/games HTTP/1.1
+
+###
+# LIST ADS BY GAME
+GET {{host}}/games/f4f2c19b-be58-412e-80ff-70097e27fb69/ads HTTP/1.1
+
+###
+# LIST ADS 
+POST {{host}}/games/f4f2c19b-be58-412e-80ff-70097e27fb69/ads HTTP/1.1
+content-type: application/json
+
+{
+  "name": "Fabio Test",
+  "yearsPlaying": 2,
+  "discord": "Fabio Gonçalves#1234",
+  "weekDays": [0, 5, 6],
+  "hourStart": "20:30",
+  "hourEnd": "23:50",
+  "useVoiceChannel": true
+}
+
+###
+# LIST DISCORD BY ADS
+GET {{host}}/ads/527ef979-6d24-46a5-8d66-10bf33eb26a5/discord HTTP/1.1
+
+###
