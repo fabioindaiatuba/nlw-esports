@@ -1,4 +1,4 @@
-export const SERVER = "http://192.168.1.118:3333";
+export const SERVER = "http://172.16.50.50:3333";
 export const THEME = {
   COLORS: {
     BACKGROUND_900: "#121214",
