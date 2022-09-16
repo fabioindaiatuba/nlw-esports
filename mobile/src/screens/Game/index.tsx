@@ -9,7 +9,7 @@ import { Background } from "../../components/Background";
 import logoImg from "../../assets/logo-nlw-esports.png";
 
 import { styles } from "./styles";
-import { THEME } from "../../theme";
+import { SERVER, THEME } from "../../theme";
 import { Heading } from "../../components/Heading";
 import { DuoCard, DuoCardProps } from "../../components/DuoCard";
 
@@ -20,7 +20,7 @@ export function Game() {
   const [duos, setDuos] = useState<DuoCardProps[]>([]);
 
   useEffect(() => {
-    fetch(`http://172.16.50.50:3333/games/${game.id}/ads`)
+    fetch(`${SERVER}/games/${game.id}/ads`)
       .then((response) => response.json())
       .then((data) => setDuos(data));
   }, []);
@@ -61,13 +61,12 @@ export function Game() {
           horizontal
           style={styles.containerList}
           contentContainerStyle={[
-            styles.contentList,
-            duos.length === 0 && styles.emptyListContent,
+            duos.length > 0 ? styles.contentList : styles.emptyListContent,
           ]}
           showsHorizontalScrollIndicator={false}
           ListEmptyComponent={() => (
             <Text style={styles.emptyListTest}>
-              Não há anúncios publicados aind.
+              Não há anúncios publicados ainda.
             </Text>
           )}
         />

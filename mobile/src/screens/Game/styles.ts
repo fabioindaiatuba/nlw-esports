@@ -44,5 +44,6 @@ export const styles = StyleSheet.create({
   emptyListContent: {
     flex: 1,
     alignItems: "center",
+    justifyContent: "center",
   },
 });

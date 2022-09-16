@@ -8,6 +8,7 @@ import logoImg from "../../assets/logo-nlw-esports.png";
 import { Background } from "../../components/Background";
 import { GameCard, GameCardProps } from "../../components/GameCard";
 import { Heading } from "../../components/Heading";
+import { SERVER } from "../../theme";
 
 import { styles } from "./styles";
 
@@ -20,7 +21,7 @@ export function Home() {
   }
 
   useEffect(() => {
-    fetch("http://172.16.50.50:3333/games")
+    fetch(`${SERVER}/games`)
       .then((response) => response.json())
       .then((data) => setGames(data));
   }, []);
